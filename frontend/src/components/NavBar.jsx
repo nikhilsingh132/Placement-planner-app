@@ -20,14 +20,14 @@ const NavBar = () => {
     <>
       <div className="mb-8 flex justify-between items-center w-full h-20 px-4 text-white bg-black">
         <div>
-          <h1 className="text-5xl font-signature ml-2">Placement Planner</h1>
+          <h1 className="text-3xl md:text-5xl font-signature ml-2">Placement Planner</h1>
         </div>
 
         <ul className="hidden md:flex">
           {links.map(({ id, link }) => (
             <li
               key={id}
-              className="px-4 cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200"
+              className="px-4 cursor-pointer capitalize font-medium text-white hover:scale-105 duration-200"
               onClick={() => handleClick()}
             >
               {link}
@@ -48,6 +48,7 @@ const NavBar = () => {
               <li
                 key={id}
                 className="px-4 cursor-pointer capitalize py-6 text-4xl"
+                onClick={() => handleClick()}
               >
                 {link}
               </li>

@@ -47,11 +47,10 @@ const Csfundamental = () => {
             <div className="w-full md:w-1/4 overflow-hidden mb-4 md:mb-0">
               <img src={data.img} alt="Card Image" className="w-80 h-64 object-cover rounded-md" />
             </div>
-            <div className="w-full md:w-3/4 p-6">
+            <div className="w-full md:w-3/4 p-6 flex flex-col justify-center align-middle text-center">
               <p className='font-bold text-3xl text-gray-800 mb-3'>{data.title}</p>
               <p className='text-gray-600 mb-3'>{data.about}</p>
               <a href={data.link} target='_blank' rel="noreferrer" className='text-blue-500 hover:underline'>Learn from here =>></a>
-              <br />
               <a href={data.ytlink} target='_blank' rel="noreferrer" className='text-blue-500 hover:underline'>Watch from here =>></a>
             </div>
           </div>
