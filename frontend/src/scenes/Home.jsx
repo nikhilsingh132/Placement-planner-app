@@ -5,30 +5,30 @@ import Cards from '../components/Cards'
 const cardinfo=[
   {
     id:1,
-    img:"https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
+    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmnm9muI2-w6yAu0VvCIdbgRsBJdODo2_UDRqLMdXQaWqsAPHaOKYLWuRNJF-0lG1ngs4&usqp=CAU",
     title:"DATA STRUCTURES AND ALGORITHMS",
-    description:"Take your boring salads up a knotch.This recipe is perfect for lunch and only contains 5 ingredients!",
+    description:"Data structures organize data (e.g., arrays), algorithms provide efficient problem-solving steps—core elements in computer science.",
     link: "/dsa"
   },
   {
     id:2,
-    img:"https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
+    img:"https://www.shutterstock.com/image-vector/machine-learning-banner-logo-technology-260nw-1816762394.jpg",
     title:"INTERVIEW PREP FOR ML",
-    description:"Take your boring salads up a knotch.This recipe is perfect for lunch and only contains 5 ingredients!",
+    description:"Machine learning empowers computers to learn from data, enhancing task performance without explicit programming.",
     link:"/ml"
   },
   {
     id:3,
-    img:"https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
+    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2LSIXtXoBEQ-eQShMeYIYukYLX8AH7XyZPZsVx3mEW4UIP62_O8Ra4QyntYIkRrCgffc&usqp=CAU",
     title:"INTERVIEW PREP FOR WEB DEVELOPMENT",
-    description:"Take your boring salads up a knotch.This recipe is perfect for lunch and only contains 5 ingredients!",
+    description:"Web development involves building and maintaining websites or web applications, combining skills in HTML, CSS, and JavaScript for frontend and backend development.",
     link:"/webd"
   },
   {
     id:4,
-    img:"https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
+    img:"https://cdn.filestackcontent.com/H5Em6KaCT56m3sXEamgP",
     title:"INTERVIEW PREP FOR CS FUNDAMENTALS",
-    description:"Take your boring salads up a knotch.This recipe is perfect for lunch and only contains 5 ingredients!",
+    description:"Computer science fundamentals encompass the foundational principles and theories that underlie the design and operation of computers and software systems.",
     link:"/csfundamental"
     
   }
