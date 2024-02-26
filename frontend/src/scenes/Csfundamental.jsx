@@ -45,7 +45,7 @@ const Csfundamental = () => {
         <Card key={data.id} className='mx-4 md:mx-8 lg:mx-16 xl:mx-20 bg-white shadow-lg overflow-hidden rounded-md mb-4 hover:bg-blue-100'>
           <div className="flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/4 overflow-hidden mb-4 md:mb-0">
-              <img src={data.img} alt="Card Image" className="w-80 h-64 object-cover rounded-md" />
+              <img src={data.img} alt="Card Img" className="w-80 h-64 object-cover rounded-md" />
             </div>
             <div className="w-full md:w-3/4 p-6 flex flex-col justify-center align-middle text-center">
               <p className='font-bold text-3xl text-gray-800 mb-3'>{data.title}</p>

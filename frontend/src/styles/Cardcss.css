@@ -12,16 +12,16 @@
   cursor: pointer;
   transition: transform 200ms ease-in;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
   background-color: rgb(226, 243, 240);
-
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
-  gap: 5rem;
+  gap: 3rem;
   justify-content: center;
 }
 

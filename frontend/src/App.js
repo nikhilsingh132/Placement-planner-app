@@ -5,6 +5,7 @@ import MachineLearn from "./scenes/MachineLearn";
 import Csfundamental from "./scenes/Csfundamental";
 import Webd from "./scenes/Webd";
 import QuesList from "./scenes/QuesList";
+import ResumeMaker from "./scenes/ResumeMaker";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/resumemaker' element={<ResumeMaker />} />
           <Route path='/dsa' element={<Dsa />} />
           <Route path='/ml' element={<MachineLearn />} />
           <Route path='/csfundamental' element={<Csfundamental />} />
