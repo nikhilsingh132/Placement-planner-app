@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AddExperience from './AddExperience';
+import { experiencedetail } from '../scenes/ResumeMaker';
 
 const WorkExperience = () => {
+  const {allExperienceData,setallExperienceData}=useContext(experiencedetail);
   const newId = Math.random().toString(36).substring(2, 11);
-  const [allExperienceData, setallExperienceData] = useState([]);
+  // const [allExperienceData, setallExperienceData] = useState([]);
   const [experienceComponent, setexperienceComponent] = useState([ { id: newId }]);
 
   const addExperience = () => {
@@ -31,7 +33,7 @@ const WorkExperience = () => {
             setallExperienceData={setallExperienceData} />
         ))
       }
-      <button style={{ backgroundColor: "green", width: "20%" }} onClick={addExperience}>Add more+</button>
+      <button style={{ backgroundColor: "#115423",color:"white",height:"2.5rem",width:"8rem" }} onClick={addExperience}>Add more+</button>
     </>
   )
 }

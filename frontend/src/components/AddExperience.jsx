@@ -33,8 +33,8 @@ const AddExperience = ({ id, allExperienceData, setallExperienceData, removeExpe
 
     return (
         <>
-            <form style={{ padding: "2rem", display: "flex", flexDirection: "column" }}>
-                <label>Job Title</label>
+            <form style={{ padding: "2rem", display: "flex", flexDirection: "column",border:"3px solid green",marginBottom:"1rem" }}>
+                <label style={{fontWeight:"bold"}}>Job Title</label>
                 <input
                     type="text"
                     name="jobTitle"
@@ -44,7 +44,7 @@ const AddExperience = ({ id, allExperienceData, setallExperienceData, removeExpe
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
 
-                <label>Description 1</label>
+                <label style={{fontWeight:"bold"}}>Description 1</label>
                 <input
                     type="text"
                     name="descriptionPoint1"
@@ -53,7 +53,7 @@ const AddExperience = ({ id, allExperienceData, setallExperienceData, removeExpe
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <label>Description 2</label>
+                <label style={{fontWeight:"bold"}}>Description 2</label>
                 <input
                     type="text"
                     name="descriptionPoint2"
@@ -62,7 +62,7 @@ const AddExperience = ({ id, allExperienceData, setallExperienceData, removeExpe
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <label>Description 3</label>
+                <label style={{fontWeight:"bold"}}>Description 3</label>
                 <input
                     type="text"
                     name="descriptionPoint3"
@@ -71,7 +71,7 @@ const AddExperience = ({ id, allExperienceData, setallExperienceData, removeExpe
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <label>Description 4</label>
+                <label style={{fontWeight:"bold"}}>Description 4</label>
                 <input
                     type="text"
                     name="descriptionPoint4"
@@ -80,7 +80,7 @@ const AddExperience = ({ id, allExperienceData, setallExperienceData, removeExpe
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <label>Start Date</label>
+                <label style={{fontWeight:"bold"}}>Start Date</label>
                 <input
                     type="text"
                     name="startDate"
@@ -89,14 +89,14 @@ const AddExperience = ({ id, allExperienceData, setallExperienceData, removeExpe
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <label>End Date</label>
+                <label style={{fontWeight:"bold"}}>End Date</label>
                 <input
                     type="text"
                     name="endDate"
                     value={formData.endDate}
                     placeholder='Enter End Date'
                     onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
+                    style={{marginBottom:"1rem",height:"2rem",}}
                 />
                 <div style={{display:"flex",flexDirection:"row",justifyContent: "space-between"}}>
                 <button style={{ backgroundColor: "#072342",color:"white",height:"2.5rem",width:"5rem" }} onClick={saveData}>Confirm</button>

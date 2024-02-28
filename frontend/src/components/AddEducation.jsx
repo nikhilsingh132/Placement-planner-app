@@ -29,8 +29,8 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
 
     return (
         <>
-            <form style={{ padding: "2rem", display: "flex", flexDirection: "column" }}>
-                <label>Name of Institution</label>
+            <form style={{ padding: "2rem", display: "flex", flexDirection: "column",border:"3px solid green",marginBottom:"1rem" }}>
+                <label style={{fontWeight:"bold"}}>Name of Institution</label>
                 <input
                     type="text"
                     name="institutionName"
@@ -40,7 +40,7 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
 
-                <label>Percentage/CPI</label>
+                <label style={{fontWeight:"bold"}}>Percentage/CPI</label>
                 <input
                     type="text"
                     name="percentOrCpi"
@@ -49,7 +49,7 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <label>Year of Completion</label>
+                <label style={{fontWeight:"bold"}}>Year of Completion</label>
                 <input
                     type="text"
                     name="completionYear"

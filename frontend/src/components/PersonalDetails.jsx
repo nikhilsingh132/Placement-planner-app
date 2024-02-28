@@ -1,12 +1,8 @@
-import React,{useState} from 'react'
-
+import React,{useContext} from 'react'
+import { personaldetail } from '../scenes/ResumeMaker';
 const PersonalDetails = () => {
-    const [formData, setformData] = useState({
-        fullname: '',
-        emailId: '',
-        phoneNumber: ''
-    });
-    let confirmedData={};
+
+    const {formData,setformData,setconfirmedData}=useContext(personaldetail);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,14 +14,14 @@ const PersonalDetails = () => {
 
     const saveData=(e)=>{
         e.preventDefault();
-        confirmedData=formData;
-        console.log(confirmedData);
+        setconfirmedData(formData);
+        // console.log(confirmedData);
     }
     return (
         <>
             <div style={{fontSize:"2rem",fontWeight:"bold",textAlign:"center",color:"#072342"}}>Personal Details</div>
-            <form style={{ padding: "2rem" ,display:"flex",flexDirection:"column"}}>
-                <label>Full Name</label>
+            <form style={{ padding: "2rem" ,display:"flex",flexDirection:"column",border:"3px solid green"}}>
+                <label style={{fontWeight:"bold"}}>Full Name</label>
                 <input
                     type="text"
                     name="fullname"
@@ -35,7 +31,7 @@ const PersonalDetails = () => {
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
 
-                <label>Email Id</label>
+                <label style={{fontWeight:"bold"}}>Email Id</label>
                 <input
                     type="text"
                     name="emailId"
@@ -44,7 +40,7 @@ const PersonalDetails = () => {
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <label>Phone Number</label>
+                <label style={{fontWeight:"bold"}}>Phone Number</label>
                 <input
                     type="text"
                     name="phoneNumber"

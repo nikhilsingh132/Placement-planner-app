@@ -1,9 +1,23 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, createContext } from 'react'
 import NavBar from '../components/NavBar'
 import Resumephotologo from '../assets/Resumephotologo.png'
 import ResumeForm from './ResumeForm'
 import ResumePreview from './ResumePreview'
+
+const personaldetail = createContext();
+const educationaldetail = createContext();
+const experiencedetail = createContext();
+
 const ResumeMaker = () => {
+    const [formData, setformData] = useState({
+        fullname: '',
+        emailId: '',
+        phoneNumber: ''
+    });
+    const [confirmedData, setconfirmedData] = useState();
+
+    const [allEducationData, setallEducationData] = useState([]);
+    const [allExperienceData, setallExperienceData] = useState([]);
 
     const [isHovered, setIsHovered] = useState(false);
     const handleHover = () => {
@@ -19,6 +33,7 @@ const ResumeMaker = () => {
 
     return (
         <>
+
             <NavBar />
             <div>
                 <div style={{ height: "92vh", backgroundColor: "#0b2d39", }}>
@@ -61,13 +76,19 @@ const ResumeMaker = () => {
                 }} />
                 <div ref={nextViewportRef} style={{ height: "100vh", backgroundColor: "#0b2d39" }}>
                     <div>
-                        <p style={{ fontSize: "3rem", color: "#e3d8eb", textAlign: "center", marginBottom:"2rem" }}>One step closer in seeking job opportunities</p>
+                        <p style={{ fontSize: "2.5rem", color: "#e3d8eb", textAlign: "center", marginBottom: "1rem" }}>One step closer in seeking job opportunities</p>
                     </div>
-                    <div style={{display:'flex',flexDirection:"row",width:'100%'}}>
-                    <ResumeForm/>
-                    <ResumePreview/>
+                    <div style={{ display: 'flex', flexDirection: "row", width: '100%' }}>
+                        <personaldetail.Provider value={{ formData, setformData, confirmedData, setconfirmedData }}>
+                            <educationaldetail.Provider value={{ allEducationData, setallEducationData }}>
+                                <experiencedetail.Provider value={{ allExperienceData, setallExperienceData }}>
+                                    <ResumeForm />
+                                    <ResumePreview />
+                                </experiencedetail.Provider>
+                            </educationaldetail.Provider>
+                        </personaldetail.Provider>
                     </div>
-                    
+
                 </div>
             </div>
         </>
@@ -75,3 +96,5 @@ const ResumeMaker = () => {
 }
 
 export default ResumeMaker
+
+export { personaldetail, educationaldetail, experiencedetail }
