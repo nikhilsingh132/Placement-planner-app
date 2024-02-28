@@ -1,10 +1,11 @@
 import React from 'react'
+import ResumePage from './ResumePage'
 
-const ResumePreview = ({name}) => {
+const ResumePreview = () => {
   return (
-    <div style={{ width: "50%" }}>
+    <div style={{ width: "50%",padding: "20px" }}>
         <p style={{textAlign:"center",color:"#4287f5",fontWeight:"bold",fontSize:"2rem"}}>Resume Preview</p>
-        <h1 style={{color:"white"}}> your name is {name}</h1>
+        <ResumePage/>
     </div>
   )
 }

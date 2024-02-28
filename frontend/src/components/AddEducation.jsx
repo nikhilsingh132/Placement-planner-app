@@ -37,6 +37,7 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
                     value={formData.institutionName}
                     placeholder='Enter Name of Institution'
                     onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
                 />
 
                 <label>Percentage/CPI</label>
@@ -46,6 +47,7 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
                     value={formData.percentOrCpi}
                     placeholder='Enter Percentage or CPI'
                     onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
                 />
                 <label>Year of Completion</label>
                 <input
@@ -54,9 +56,12 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
                     value={formData.completionYear}
                     placeholder='Enter Year of Completion'
                     onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
                 />
-                <button style={{ backgroundColor: "red" }} onClick={saveData}>Confirm</button>
-                <button style={{ backgroundColor: "green" }} onClick={handleRemove}>Remove</button>
+                <div style={{display:"flex",flexDirection:"row",justifyContent: "space-between"}}>
+                <button style={{ backgroundColor: "#072342",color:"white",height:"2.5rem",width:"5rem" }} onClick={saveData}>Confirm</button>
+                <button style={{ backgroundColor: "#ba271a",color:"white",height:"2.5rem",width:"5rem"}} onClick={handleRemove}>Remove</button>
+                </div>
             </form>
         </>
     )

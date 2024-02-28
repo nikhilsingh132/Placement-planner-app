@@ -18,7 +18,7 @@ const NavBar = () => {
     {
       id:2,
       link:"resume",
-      endpoint:"resumemaker"
+      endpoint:"/resumemaker"
     }
   ];
 

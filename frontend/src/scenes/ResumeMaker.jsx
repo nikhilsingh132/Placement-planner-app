@@ -6,7 +6,6 @@ import ResumePreview from './ResumePreview'
 const ResumeMaker = () => {
 
     const [isHovered, setIsHovered] = useState(false);
-    const [name, setname] = useState();
     const handleHover = () => {
         setIsHovered(!isHovered);
     };
@@ -65,8 +64,8 @@ const ResumeMaker = () => {
                         <p style={{ fontSize: "3rem", color: "#e3d8eb", textAlign: "center", marginBottom:"2rem" }}>One step closer in seeking job opportunities</p>
                     </div>
                     <div style={{display:'flex',flexDirection:"row",width:'100%'}}>
-                    <ResumeForm name={name} setname={setname}/>
-                    <ResumePreview name={name}/>
+                    <ResumeForm/>
+                    <ResumePreview/>
                     </div>
                     
                 </div>
