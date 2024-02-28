@@ -5,7 +5,6 @@ import { experiencedetail } from '../scenes/ResumeMaker';
 const WorkExperience = () => {
   const {allExperienceData,setallExperienceData}=useContext(experiencedetail);
   const newId = Math.random().toString(36).substring(2, 11);
-  // const [allExperienceData, setallExperienceData] = useState([]);
   const [experienceComponent, setexperienceComponent] = useState([ { id: newId }]);
 
   const addExperience = () => {

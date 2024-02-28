@@ -13,7 +13,7 @@ const ResumeForm = () => {
     const [currentIndex, setcurrentIndex] = useState(1);
 
     const nextIndex = () => {
-        if (currentIndex === 3) {
+        if (currentIndex === 8) {
             return;
         }
         setcurrentIndex(currentIndex + 1);

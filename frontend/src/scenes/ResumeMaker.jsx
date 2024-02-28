@@ -7,6 +7,11 @@ import ResumePreview from './ResumePreview'
 const personaldetail = createContext();
 const educationaldetail = createContext();
 const experiencedetail = createContext();
+const skilldetail = createContext();
+const projectdetail = createContext();
+const achievementdetail = createContext();
+const pordetail = createContext();
+const extracurriculardetail = createContext();
 
 const ResumeMaker = () => {
     const [formData, setformData] = useState({
@@ -15,9 +20,20 @@ const ResumeMaker = () => {
         phoneNumber: ''
     });
     const [confirmedData, setconfirmedData] = useState();
-
     const [allEducationData, setallEducationData] = useState([]);
     const [allExperienceData, setallExperienceData] = useState([]);
+    const [skillData, setskillData] = useState({
+        programmingLang: '',
+        libraries: '',
+        areaOfInterest: ''
+    });
+    const [allskillData, setallskillData] = useState([]);
+    const [allProjectData, setallProjectData] = useState([]);
+    const [allAchievementData, setallAchievementData] = useState([]);
+    const [allPorData, setallPorData] = useState([]);
+    const [allExtraCurricularData, setallExtraCurricularData] = useState([]);
+
+
 
     const [isHovered, setIsHovered] = useState(false);
     const handleHover = () => {
@@ -82,8 +98,18 @@ const ResumeMaker = () => {
                         <personaldetail.Provider value={{ formData, setformData, confirmedData, setconfirmedData }}>
                             <educationaldetail.Provider value={{ allEducationData, setallEducationData }}>
                                 <experiencedetail.Provider value={{ allExperienceData, setallExperienceData }}>
-                                    <ResumeForm />
-                                    <ResumePreview />
+                                    <skilldetail.Provider value={{ skillData, setskillData, allskillData, setallskillData }}>
+                                        <projectdetail.Provider value={{ allProjectData, setallProjectData }}>
+                                            <achievementdetail.Provider value={{ allAchievementData, setallAchievementData }}>
+                                                <pordetail.Provider value={{ allPorData, setallPorData }}>
+                                                    <extracurriculardetail.Provider value={{ allExtraCurricularData, setallExtraCurricularData }}>
+                                                        <ResumeForm />
+                                                        <ResumePreview />
+                                                    </extracurriculardetail.Provider>
+                                                </pordetail.Provider>
+                                            </achievementdetail.Provider>
+                                        </projectdetail.Provider>
+                                    </skilldetail.Provider>
                                 </experiencedetail.Provider>
                             </educationaldetail.Provider>
                         </personaldetail.Provider>
@@ -97,4 +123,4 @@ const ResumeMaker = () => {
 
 export default ResumeMaker
 
-export { personaldetail, educationaldetail, experiencedetail }
+export { personaldetail, educationaldetail, experiencedetail, skilldetail, projectdetail, achievementdetail,pordetail,extracurriculardetail }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { personaldetail, educationaldetail, experiencedetail } from './ResumeMaker';
+import { personaldetail, educationaldetail, experiencedetail, skilldetail, projectdetail, achievementdetail, pordetail, extracurriculardetail } from './ResumeMaker';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 const resumeStyles = {
@@ -36,6 +36,11 @@ const ResumePage = () => {
   const { confirmedData } = useContext(personaldetail);
   const { allEducationData } = useContext(educationaldetail);
   const { allExperienceData } = useContext(experiencedetail);
+  const { allskillData } = useContext(skilldetail);
+  const { allProjectData } = useContext(projectdetail);
+  const { allAchievementData } = useContext(achievementdetail);
+  const { allPorData } = useContext(pordetail);
+  const { allExtraCurricularData } = useContext(extracurriculardetail);
 
   const downloadPDF = () => {
     const capture = document.querySelector('.actual-pdf');
@@ -48,7 +53,7 @@ const ResumePage = () => {
       doc.save('Resume.pdf');
     })
   }
-
+  // console.log(allAchievementData);
   return (
     <>
       <div className="actual-pdf" style={{ width: "80%", marginLeft: "3rem" }}>
@@ -81,7 +86,7 @@ const ResumePage = () => {
           <div style={resumeStyles.section}>
             <h2 style={resumeStyles.sectionTitle}>SKILLS</h2>
             <ol style={{ listStyleType: "circle" }}>
-              <li>Programming Languages: C++, Java, Python, HTML, CSS, JavaScript</li>
+              <li>Programming Languages: {allskillData.programmingLang}</li>
               <li>Libraries/Frameworks: Scikit-Learn, Tensorflow, NodeJS, ExpressJS, ReactJS, Bootstrap, Material-UI</li>
               <li>Areas of Interest: Web Development, Competitive Programming, Machine Learning, Data Science</li>
             </ol>
@@ -92,7 +97,7 @@ const ResumePage = () => {
             <h2 style={resumeStyles.sectionTitle}>PROJECTS</h2>
             <div style={resumeStyles.listItem}>
               <strong>
-                Handwritten Emoji Captcha Detection (Mosaic’22)</strong> - May 2023- July 2023
+                {allProjectData[0]?.projectname}</strong> - May 2023- July 2023
               <ol style={{ listStyleType: "circle" }}>
                 <li>Enhanced captcha image quality by applying noise removal techniques in image processing.</li>
                 <li>Accurately segmented emojis and alphabets from captcha images using advanced image processing methods.</li>
@@ -102,15 +107,37 @@ const ResumePage = () => {
             </div>
           </div>
 
+          <div style={resumeStyles.section}>
+            <h2 style={resumeStyles.sectionTitle}>ACHIEVEMENTS</h2>
+            <div style={resumeStyles.listItem}>
+              <strong>
+                {allAchievementData[0]?.achievementName}</strong>
+            </div>
+          </div>
 
+          <div style={resumeStyles.section}>
+            <h2 style={resumeStyles.sectionTitle}>PORs</h2>
+            <div style={resumeStyles.listItem}>
+              <strong>
+                {allPorData[0]?.porName}</strong>
+            </div>
+          </div>
+
+          <div style={resumeStyles.section}>
+            <h2 style={resumeStyles.sectionTitle}>EXTRA-CURRICULAR ACTIVITIES</h2>
+            <div style={resumeStyles.listItem}>
+              <strong>
+                {allExtraCurricularData[0]?.extracurricularName}</strong>
+            </div>
+          </div>
         </div>
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}>
-          <button style={{ backgroundColor: "#388a7f", color: "white", height: "2.5rem",width:"8rem" }} onClick={downloadPDF}>Download PDF</button>
-        </div>
+      </div>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}>
+        <button style={{ backgroundColor: "#388a7f", color: "white", height: "2.5rem", width: "8rem" }} onClick={downloadPDF}>Download PDF</button>
       </div>
     </>
   );
