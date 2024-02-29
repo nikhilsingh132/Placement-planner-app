@@ -15,7 +15,6 @@ const PersonalDetails = () => {
     const saveData=(e)=>{
         e.preventDefault();
         setconfirmedData(formData);
-        // console.log(confirmedData);
     }
     return (
         <>
@@ -46,6 +45,46 @@ const PersonalDetails = () => {
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     placeholder='Enter Phone Number'
+                    onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
+                />
+
+<label style={{fontWeight:"bold"}}>Linkedin Profile</label>
+                <input
+                    type="text"
+                    name="linkedin"
+                    value={formData.linkedin}
+                    placeholder='Enter Linkedin Profile'
+                    onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
+                />
+
+<label style={{fontWeight:"bold"}}>Github Profile</label>
+                <input
+                    type="text"
+                    name="github"
+                    value={formData.github}
+                    placeholder='Enter Github Profile'
+                    onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
+                />
+
+<label style={{fontWeight:"bold"}}>Social Link 1</label>
+                <input
+                    type="text"
+                    name="sociallink1"
+                    value={formData.sociallink1}
+                    placeholder='Enter Social Link 1'
+                    onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
+                />
+
+<label style={{fontWeight:"bold"}}>Social Link 2</label>
+                <input
+                    type="text"
+                    name="sociallink2"
+                    value={formData.sociallink2}
+                    placeholder='Enter Social Link 2'
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />

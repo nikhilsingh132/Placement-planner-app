@@ -17,9 +17,13 @@ const ResumeMaker = () => {
     const [formData, setformData] = useState({
         fullname: '',
         emailId: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        linkedin:'',
+        github:'',
+        sociallink1:'',
+        sociallink2:''
     });
-    const [confirmedData, setconfirmedData] = useState();
+    const [confirmedData, setconfirmedData] = useState([]);
     const [allEducationData, setallEducationData] = useState([]);
     const [allExperienceData, setallExperienceData] = useState([]);
     const [skillData, setskillData] = useState({
@@ -123,4 +127,4 @@ const ResumeMaker = () => {
 
 export default ResumeMaker
 
-export { personaldetail, educationaldetail, experiencedetail, skilldetail, projectdetail, achievementdetail,pordetail,extracurriculardetail }
+export { personaldetail, educationaldetail, experiencedetail, skilldetail, projectdetail, achievementdetail, pordetail, extracurriculardetail }
