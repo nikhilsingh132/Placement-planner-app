@@ -9,6 +9,7 @@ const cors = require("cors")
 app.use(cors());
 
 app.use(require("./api/QuesApi"));
+app.use(require("./api/UserApi"))
 
 
 app.listen(port, () => {

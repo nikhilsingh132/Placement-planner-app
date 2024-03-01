@@ -19,6 +19,11 @@ const NavBar = () => {
       id:2,
       link:"resume",
       endpoint:"/resumemaker"
+    },
+    {
+      id:2,
+      link:"login",
+      endpoint:"/login"
     }
   ];
 
