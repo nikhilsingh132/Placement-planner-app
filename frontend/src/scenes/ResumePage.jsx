@@ -1,6 +1,13 @@
 import React, { useContext } from 'react';
 import { personaldetail, educationaldetail, experiencedetail, skilldetail, projectdetail, achievementdetail, pordetail, extracurriculardetail } from './ResumeMaker';
-import { Document, PDFViewer, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
+import { Document, PDFViewer, Page, Text, View, StyleSheet, Link,Font } from '@react-pdf/renderer';
+import Arimo from '../assets/fonts/ArimoBold-dVDx.ttf'
+
+
+Font.register({
+  family: 'ArimoFamily',
+  src:Arimo
+})
 const styles = StyleSheet.create({
   page1: {
     padding: 30
@@ -8,7 +15,8 @@ const styles = StyleSheet.create({
   personal: {
     fontSize: "30px",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
+    lineHeight:"20rem"
   },
   links: {
     display: "flex",
@@ -19,13 +27,17 @@ const styles = StyleSheet.create({
   text: {
     fontSize: "16px",
     marginBottom: "5px",
-    textAlign:"center"
+    textAlign:"center",
+    fontFamily: 'ArimoFamily',
+    fontWeight: 'bold',
+    backgroundColor:'#C8DCE6'
   },
   titleofField: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     fontSize: "14px",
+    fontFamily: 'ArimoFamily',
   },
   dataofField: {
     fontSize: "12px",
@@ -46,7 +58,9 @@ const styles = StyleSheet.create({
     fontSize: "12px",
   },
   skilltitle: {
-    marginRight: "4px"
+    marginRight: "4px",
+    fontFamily: 'ArimoFamily',
+    marginBottom: "5px"
   },
   skilldata: {
     color: "#363837"
