@@ -39,7 +39,7 @@ const SkillsDetails = () => {
                     onChange={handleChange}
                     style={{ marginBottom: "1rem", height: "2rem" }}
                 />
-                <label style={{ fontWeight: "bold" }}>Phone Number</label>
+                <label style={{ fontWeight: "bold" }}>Area of Interest</label>
                 <input
                     type="text"
                     name="areaOfInterest"

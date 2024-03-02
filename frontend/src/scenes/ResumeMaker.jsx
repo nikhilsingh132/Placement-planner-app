@@ -72,7 +72,7 @@ const ResumeMaker = () => {
                                 <span style={{ color: "#55cb51", fontSize: "6rem", fontWeight: "bold" }}> Resume </span>
                             </p>
                         </div>
-                        <div style={{ marginTop: "4rem", transform: `perspective(400px) rotate3d(1, -1, 0, ${isHovered ? '15deg' : '0deg'})`, transition: 'transform 0.5s' }}>
+                        <div style={{ marginTop: "4rem" }}>
                             <img src={Resumephotologo} alt="ResumePhotoLogo" onMouseEnter={handleHover} onMouseLeave={handleHover} />
                         </div>
                     </div>

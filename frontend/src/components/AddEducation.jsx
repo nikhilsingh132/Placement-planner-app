@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const AddEducation = ({id,allEducationData,setallEducationData,removeEducation}) => {
     
     const [formData, setFormData] = useState({
+        degree:'',
         institutionName: '',
         percentOrCpi: '',
         completionYear: ''
@@ -30,6 +31,15 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
     return (
         <>
             <form style={{ padding: "2rem", display: "flex", flexDirection: "column",border:"3px solid green",marginBottom:"1rem" }}>
+            <label style={{fontWeight:"bold"}}>Name of Degree</label>
+                <input
+                    type="text"
+                    name="degree"
+                    value={formData.degree}
+                    placeholder='Enter Degree'
+                    onChange={handleChange}
+                    style={{marginBottom:"1rem",height:"2rem"}}
+                />
                 <label style={{fontWeight:"bold"}}>Name of Institution</label>
                 <input
                     type="text"
