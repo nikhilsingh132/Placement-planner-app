@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
-}
-
 body,
 input {
   font-family: 'Montserrat', sans-serif;
@@ -41,7 +34,9 @@ input {
   z-index: 5;
 }
 
-form {
+form.sign-up-form {
+  opacity: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,13 +48,17 @@ form {
   grid-row: 1 / 2;
 }
 
-form.sign-up-form {
-  opacity: 0;
-  z-index: 1;
-}
-
 form.sign-in-form {
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
 .title {
@@ -233,7 +232,6 @@ form.sign-in-form {
   transform: translateX(800px);
 }
 
-/* ANIMATION */
 
 .container.sign-up-mode:before {
   transform: translate(100%, -50%);

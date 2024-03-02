@@ -13,8 +13,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/resumemaker' element={<ResumeMaker />} />
           <Route path='/dsa' element={<Dsa />} />
           <Route path='/ml' element={<MachineLearn />} />

@@ -13,7 +13,7 @@ const NavBar = () => {
     {
       id: 1,
       link: "home",
-      endpoint:"/"
+      endpoint:"/home"
     },
     {
       id:2,
@@ -23,7 +23,7 @@ const NavBar = () => {
     {
       id:2,
       link:"login",
-      endpoint:"/login"
+      endpoint:"/"
     }
   ];
 

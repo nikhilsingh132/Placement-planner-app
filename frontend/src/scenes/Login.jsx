@@ -32,7 +32,7 @@ const Login = () => {
             if (message === "Login Successful") {
                 console.log("Login done successfully");
                 alert("Login Successful");
-                navigate("/");
+                navigate("/home");
             } else {
                 alert("Login failed");
                 console.log(message);
@@ -40,8 +40,8 @@ const Login = () => {
         } catch (error) {
             console.log("Login error", error);
         }
-        // setloginusername("");
-        // setloginpassword("");
+        setusername("");
+        setpassword("");
     }
 
     const handleSignup = async (e) => {
@@ -54,15 +54,15 @@ const Login = () => {
                 password,
             });
             alert("Signed Up Successfully");
-            navigate("/");
+            navigate("/home");
         } catch (error) {
             alert("Sign up error");
             console.log("Sign up error", error);
         }
-        // setsignupemail("");
-        // setsignuppassword("");
-        // setsignupusername("");
-        // setsignupphoneNumber("");
+        setemail("");
+        setpassword("");
+        setusername("");
+        setphoneNumber("");
     }
     return (
         <div className={`container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
