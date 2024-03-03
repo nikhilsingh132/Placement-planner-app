@@ -18,10 +18,8 @@ const ResumeMaker = () => {
         fullname: '',
         emailId: '',
         phoneNumber: '',
-        linkedin:'',
-        github:'',
-        sociallink1:'',
-        sociallink2:''
+        linkedin: '',
+        github: '',
     });
     const [confirmedData, setconfirmedData] = useState([]);
     const [allEducationData, setallEducationData] = useState([]);
@@ -83,7 +81,8 @@ const ResumeMaker = () => {
                             alignItems: 'center',
                         }}>
                             <p style={{ fontWeight: "bold", fontSize: "2rem", color: "#132e40", marginRight: "1rem" }}>Start building awesome resume 🛠️📑</p>
-                            <button style={{ backgroundColor: "#0c2638", color: "white", height: "3rem", width: "7rem", borderRadius: "2rem" }} onClick={handleScrollToNextViewport}>Click Here</button>
+                            <button style={{
+                                backgroundColor: "#0c2638", color: "white", height: "3rem", width: "7rem", borderRadius: "2rem"}} onClick={handleScrollToNextViewport}>Click Here</button>
                         </div>
 
                     </div>

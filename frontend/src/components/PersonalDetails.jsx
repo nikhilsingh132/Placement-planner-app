@@ -68,26 +68,6 @@ const PersonalDetails = () => {
                     onChange={handleChange}
                     style={{marginBottom:"1rem",height:"2rem"}}
                 />
-
-<label style={{fontWeight:"bold"}}>Social Link 1</label>
-                <input
-                    type="text"
-                    name="sociallink1"
-                    value={formData.sociallink1}
-                    placeholder='Enter Social Link 1'
-                    onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
-                />
-
-<label style={{fontWeight:"bold"}}>Social Link 2</label>
-                <input
-                    type="text"
-                    name="sociallink2"
-                    value={formData.sociallink2}
-                    placeholder='Enter Social Link 2'
-                    onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
-                />
                 <button style={{ backgroundColor: "#072342",color:"white",height:"2.5rem" }} onClick={saveData}>Confirm</button>
             </form>
         </>

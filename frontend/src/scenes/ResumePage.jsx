@@ -1,36 +1,48 @@
 import React, { useContext } from 'react';
 import { personaldetail, educationaldetail, experiencedetail, skilldetail, projectdetail, achievementdetail, pordetail, extracurriculardetail } from './ResumeMaker';
-import { Document, PDFViewer, Page, Text, View, StyleSheet, Link,Font } from '@react-pdf/renderer';
+import { Document, PDFViewer, Page, Text, View, StyleSheet, Link, Font } from '@react-pdf/renderer';
 import Arimo from '../assets/fonts/ArimoBold-dVDx.ttf'
 
 
 Font.register({
   family: 'ArimoFamily',
-  src:Arimo
+  src: Arimo
 })
 const styles = StyleSheet.create({
-  page1: {
-    padding: 30
+  page: {
+    padding: 30,
+  },
+  pageStyle: {
+    borderWidth: 1
   },
   personal: {
-    fontSize: "30px",
-    fontWeight: "bold",
+    fontSize: "20px",
     textAlign: "center",
-    lineHeight:"20rem"
+    fontFamily: "ArimoFamily",
   },
   links: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    color: "black"
+    color: "black",
+    textAlign: "center",
+    fontSize: "10px",
+    marginBottom: "2px"
+  },
+  clickablelink: {
+    cursor: "pointer"
   },
   text: {
-    fontSize: "16px",
-    marginBottom: "5px",
-    textAlign:"center",
+    fontSize: "14px",
+    textAlign: "center",
     fontFamily: 'ArimoFamily',
     fontWeight: 'bold',
-    backgroundColor:'#C8DCE6'
+    backgroundColor: '#C8DCE6'
+  },
+  descriptionstyle: {
+    display: "flex",
+    flexDirection: "row",
+    color: "black",
   },
   titleofField: {
     display: "flex",
@@ -38,32 +50,43 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     fontSize: "14px",
     fontFamily: 'ArimoFamily',
+    backgroundColor: '#E6E6E6',
+    marginBottom: "5px",
+    marginLeft: "2px",
+    marginRight: "2px"
   },
   dataofField: {
     fontSize: "12px",
-    color: "#363837",
-    marginBottom: "5px"
+    marginBottom: "5px",
+    width: "98%",
+    flexWrap: 'wrap',
+    marginLeft: '2px',
   },
   educationfield: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
-    fontSize: "14px",
-    color: "#363837",
+    fontSize: "12px",
     marginBottom: "5px"
   },
-  skillfield: {
+  educationHeading: {
     display: "flex",
     flexDirection: "row",
+    marginBottom: "5px",
     fontSize: "12px",
+    fontFamily: "ArimoFamily",
+    backgroundColor: "#E6E6E6"
   },
   skilltitle: {
     marginRight: "4px",
     fontFamily: 'ArimoFamily',
     marginBottom: "5px"
   },
-  skilldata: {
-    color: "#363837"
+  skillfielddata: {
+    display: "flex",
+    flexDirection: "row",
+    fontSize: "12px",
+    marginLeft: "2px",
+    marginRight: "2px"
   }
 })
 
@@ -85,241 +108,318 @@ const ResumePage = () => {
     <>
       <PDFViewer height={550} width={650}>
         <Document title='Resume'>
-          <Page size="A4" style={styles.page1}>
+          <Page size="A4" style={styles.page}>
+
+
             {/* PERSONAL DETAILS */}
-            <View>
-              <Text style={styles.personal}>{confirmedData?.fullname}</Text>
-              <div style={styles.links}>
-                <Link style={{ marginRight: "20px" }}>{confirmedData?.emailId}</Link>
-                <Link>{confirmedData?.phoneNumber}</Link>
-              </div>
-            </View>
-
-
-
-            {/* EDUCATION DETAILS */}
-            <View>
-              {
-                allEducationData.length > 0 && <Text style={styles.text}>EDUCATION</Text>
-              }
-              {
-                allEducationData.map((item) => (
-                    <View style={styles.educationfield}>
-                      <Text>{item?.degree}</Text>
-                      <Text>{item?.institutionName}</Text>
-                      <Text>{item?.percentOrCpi}</Text>
-                      <Text>{item?.completionYear}</Text>
-                    </View>
-                ))
-              }
-            </View>
-
-
-            {/* SKILL DETAILS */}
-            <View>
-              {
-                Object.keys(allskillData).length > 0 && <Text style={styles.text}>SKILLS</Text>
-              }
-              {
-                <View>
-                  <View style={styles.skillfield}>
-                    {
-                      allskillData?.programmingLang &&
-                      <>
-                        <Text style={styles.skilltitle}>
-                          • Programming Languages:
-                        </Text>
-                        <Text style={styles.skilldata}>
-                          {allskillData?.programmingLang}
-                        </Text>
-                      </>
-                    }
-                    {
-                      allskillData?.libraries &&
-                      <>
-                        <Text style={styles.skilltitle}>
-                          • Libraries/Frameworks:
-                        </Text>
-                        <Text style={styles.skilldata}>
-                          {allskillData?.libraries}
-                        </Text>
-                      </>
-                    }
-                    {
-                      allskillData?.areaOfInterest &&
-                      <>
-                        <Text style={styles.skilltitle}>
-                          • Area of Interest:
-                        </Text>
-                        <Text style={styles.skilldata}>
-                          {allskillData?.areaOfInterest}
-                        </Text>
-                      </>
-                    }
-                  </View>
+            {
+              Object.keys(confirmedData).length > 0 &&
+              <View>
+                <Text style={styles.personal}>{confirmedData?.fullname}</Text>
+                <View style={styles.links}>
+                  {
+                    confirmedData?.emailId &&
+                    <Text>
+                      <Link style={styles.clickablelink} src={confirmedData?.emailId}>Email</Link>
+                    </Text>
+                  }
+                  {
+                    confirmedData?.phoneNumber && <Text> • </Text>
+                  }
+                  {
+                    confirmedData?.phoneNumber &&
+                    <Text>
+                      <Link style={styles.clickablelink} src={confirmedData?.phoneNumber}>Phone</Link>
+                    </Text>
+                  }
+                  {
+                    confirmedData?.linkedin && <Text> • </Text>
+                  }
+                  {
+                    confirmedData?.linkedin &&
+                    <Text>
+                      <Link style={styles.clickablelink} src={confirmedData?.linkedin}>LinkedIn</Link>
+                    </Text>
+                  }
+                  {
+                    confirmedData?.github && <Text> • </Text>
+                  }
+                  {
+                    confirmedData?.github &&
+                    <Text style={styles.linkspace}>
+                      <Link style={styles.clickablelink} src={confirmedData?.github}>Github</Link>
+                    </Text>
+                  }
                 </View>
+              </View>
+            }
+            <View style={styles.pageStyle}>
 
-              }
-            </View>
-
-
-
-            {/* EXPERIENCE DETAILS */}
-            <View>
-              {
-                allExperienceData.length > 0 && <Text style={styles.text}>EXPERIENCE</Text>
-              }
-              {
-                allExperienceData.map((item) => (
-                  <View>
-
-                    <View style={styles.titleofField}>
-                      <Text>{item?.jobTitle}</Text>
-                      <Text>{item?.startDate} - {item?.endDate}</Text>
+              {/* EDUCATION DETAILS */}
+              <View>
+                {
+                  allEducationData.length > 0 && <Text style={styles.text}>EDUCATION</Text>
+                }
+                {
+                  allEducationData.length > 0 &&
+                  <View style={styles.educationHeading}>
+                    <Text style={{ width: "15%", textAlign: "center" }}>Degree</Text>
+                    <Text style={{ width: "55%", textAlign: "center" }}>Institution</Text>
+                    <Text style={{ width: "15%", textAlign: "center" }}>Percentage</Text>
+                    <Text style={{ width: "15%", textAlign: "center" }}>Year</Text>
+                  </View>
+                }
+                {
+                  allEducationData.map((item) => (
+                    <View style={styles.educationfield}>
+                      <Text style={{ width: "15%", textAlign: "center" }}>{item?.degree}</Text>
+                      <Text style={{ width: "55%", textAlign: "center" }}>{item?.institutionName}</Text>
+                      <Text style={{ width: "15%", textAlign: "center" }}>{item?.percentOrCpi}</Text>
+                      <Text style={{ width: "15%", textAlign: "center" }}>{item?.completionYear}</Text>
                     </View>
-                    <View style={styles.dataofField}>
+                  ))
+                }
+              </View>
+
+
+              {/* SKILL DETAILS */}
+              <View>
+                {
+                  Object.keys(allskillData).length > 0 && <Text style={styles.text}>SKILLS</Text>
+                }
+                {
+                  <View>
+                    <View>
                       {
-                        item?.descriptionPoint1 &&
-                        <Text>
-                          • {item?.descriptionPoint1}
+                        allskillData?.programmingLang &&
+                        <Text style={styles.skillfielddata}>
+                          <Text style={styles.skilltitle}>
+                            • Programming Languages:
+                          </Text>
+                          <Text>
+                            {allskillData?.programmingLang}
+                          </Text>
                         </Text>
                       }
                       {
-                        item?.descriptionPoint2 &&
-                        <Text>
-                          • {item?.descriptionPoint2}
+                        allskillData?.libraries &&
+                        <Text style={styles.skillfielddata}>
+                          <Text style={styles.skilltitle}>
+                            • Libraries/Frameworks:
+                          </Text>
+                          <Text>
+                            {allskillData?.libraries}
+                          </Text>
                         </Text>
                       }
                       {
-                        item?.descriptionPoint3 &&
-                        <Text>
-                          • {item?.descriptionPoint3}
-                        </Text>
-                      }
-                      {
-                        item?.descriptionPoint4 &&
-                        <Text>
-                          • {item?.descriptionPoint4}
+                        allskillData?.areaOfInterest &&
+                        <Text style={styles.skillfielddata}>
+                          <Text style={styles.skilltitle}>
+                            • Area of Interest:
+                          </Text>
+                          <Text>
+                            {allskillData?.areaOfInterest}
+                          </Text>
                         </Text>
                       }
                     </View>
                   </View>
-                ))
-              }
-            </View>
+
+                }
+              </View>
 
 
-            {/* PROJECT DETAILS */}
-            <View>
-              {
-                allProjectData.length > 0 && <Text style={styles.text}>PROJECT</Text>
-              }
-              {
-                allProjectData.map((item) => (
-                  <View>
-                    <View style={styles.titleofField}>
-                      <Text>{item?.projectname}</Text>
-                      <Text>{item?.startDate} - {item?.endDate}</Text>
+
+              {/* EXPERIENCE DETAILS */}
+              <View>
+                {
+                  allExperienceData.length > 0 && <Text style={styles.text}>EXPERIENCE</Text>
+                }
+                {
+                  allExperienceData.map((item) => (
+                    <View>
+                      <View style={styles.titleofField}>
+                        <Text>{item?.jobTitle}</Text>
+                        <Text>{item?.startDate} - {item?.endDate}</Text>
+                      </View>
+                      <View style={styles.dataofField}>
+                        {
+                          item?.descriptionPoint1 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint1}
+                            </Text>
+                          </View>
+                        }
+                        {
+                          item?.descriptionPoint2 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint2}
+                            </Text>
+                          </View>
+                        }
+                        {
+                          item?.descriptionPoint3 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint3}
+                            </Text>
+                          </View>
+                        }
+                        {
+                          item?.descriptionPoint4 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint4}
+                            </Text>
+                          </View>
+                        }
+                      </View>
                     </View>
-                    <View style={styles.dataofField}>
-                      {
-                        item?.descriptionPoint1 &&
-                        <Text>
-                          • {item?.descriptionPoint1}
-                        </Text>
-                      }
-                      {
-                        item?.descriptionPoint2 &&
-                        <Text>
-                          • {item?.descriptionPoint2}
-                        </Text>
-                      }
-                      {
-                        item?.descriptionPoint3 &&
-                        <Text>
-                          • {item?.descriptionPoint3}
-                        </Text>
-                      }
-                      {
-                        item?.descriptionPoint4 &&
-                        <Text>
-                          • {item?.descriptionPoint4}
-                        </Text>
-                      }
+                  ))
+                }
+              </View>
+
+
+              {/* PROJECT DETAILS */}
+              <View>
+                {
+                  allProjectData.length > 0 && <Text style={styles.text}>PROJECT</Text>
+                }
+                {
+                  allProjectData.map((item) => (
+                    <View>
+                      <View style={styles.titleofField}>
+                        <Text>{item?.projectname}</Text>
+                        <Text>{item?.startDate} - {item?.endDate}</Text>
+                      </View>
+                      <View style={styles.dataofField}>
+                        {
+                          item?.descriptionPoint1 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint1}
+                            </Text>
+                          </View>
+                        }
+                        {
+                          item?.descriptionPoint2 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint2}
+                            </Text>
+                          </View>
+                        }
+                        {
+                          item?.descriptionPoint3 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint3}
+                            </Text>
+                          </View>
+                        }
+                        {
+                          item?.descriptionPoint4 &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.descriptionPoint4}
+                            </Text>
+                          </View>
+                        }
+                      </View>
                     </View>
-                  </View>
-                ))
-              }
-            </View>
+                  ))
+                }
+              </View>
 
 
 
-            {/* ACHIEVEMENT DETAILS */}
-            <View>
-              {
-                allAchievementData.length > 0 && <Text style={styles.text}>HONOURS AND ACHIEVEMENTS</Text>
-              }
-              {
-                allAchievementData.map((item) => (
-                  <View>
-                    <View style={styles.dataofField}>
-                      {
-                        item?.achievementName &&
-                        <Text>
-                          • {item?.achievementName}
-                        </Text>
-                      }
+              {/* ACHIEVEMENT DETAILS */}
+              <View>
+                {
+                  allAchievementData.length > 0 && <Text style={styles.text}>HONOURS AND ACHIEVEMENTS</Text>
+                }
+                {
+                  allAchievementData.map((item) => (
+                    <View>
+                      <View style={styles.dataofField}>
+                        {
+                          item?.achievementName &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.achievementName}
+                            </Text>
+                          </View>
+                        }
+                      </View>
                     </View>
-                  </View>
-                ))
-              }
-            </View>
+                  ))
+                }
+              </View>
 
-            {/* POR DETAILS */}
-            <View>
-              {
-                allPorData.length > 0 && <Text style={styles.text}>POSITION OF RESPONSIBILITY</Text>
-              }
-              {
-                allPorData.map((item) => (
-                  <View>
-                    <View style={styles.titleofField}>
-                      <Text>{item?.porName}</Text>
+              {/* POR DETAILS */}
+              <View>
+                {
+                  allPorData.length > 0 && <Text style={styles.text}>POSITION OF RESPONSIBILITY</Text>
+                }
+                {
+                  allPorData.map((item) => (
+                    <View>
+                      <View style={styles.titleofField}>
+                        <Text>{item?.porName}</Text>
+                      </View>
+                      <View style={styles.dataofField}>
+                        {
+                          item?.porDescription &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.porDescription}
+                            </Text>
+                          </View>
+                        }
+                      </View>
                     </View>
-                    <View style={styles.dataofField}>
-                      {
-                        item?.porDescription &&
-                        <Text>
-                          • {item?.porDescription}
-                        </Text>
-                      }
+                  ))
+                }
+              </View>
+
+
+
+              {/* EXTRACURRICULAR DETAILS */}
+              <View>
+                {
+                  allExtraCurricularData.length > 0 && <Text style={styles.text}>EXTRA-CURRICULAR ACTIVITIES</Text>
+                }
+                {
+                  allExtraCurricularData.map((item) => (
+                    <View>
+                      <View style={styles.dataofField}>
+                        {
+                          item?.extracurricularName &&
+                          <View style={styles.descriptionstyle}>
+                            <Text style={{ fontFamily: "ArimoFamily", marginRight: "4px" }}>•</Text>
+                            <Text>
+                              {item?.extracurricularName}
+                            </Text>
+                          </View>
+                        }
+                      </View>
                     </View>
-                  </View>
-                ))
-              }
-            </View>
-
-
-
-            {/* EXTRACURRICULAR DETAILS */}
-            <View>
-              {
-                allExtraCurricularData.length > 0 && <Text style={styles.text}>EXTRA-CURRICULAR ACTIVITIES</Text>
-              }
-              {
-                allExtraCurricularData.map((item) => (
-                  <View>
-                    <View style={styles.dataofField}>
-                      {
-                        item?.extracurricularName &&
-                        <Text>
-                          • {item?.extracurricularName}
-                        </Text>
-                      }
-                    </View>
-                  </View>
-                ))
-              }
+                  ))
+                }
+              </View>
             </View>
           </Page>
         </Document>
