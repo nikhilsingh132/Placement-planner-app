@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React, { useContext } from 'react'
 import { skilldetail } from "../scenes/ResumeMaker";
 const SkillsDetails = () => {
 
@@ -18,37 +18,37 @@ const SkillsDetails = () => {
     }
     return (
         <>
-            <div style={{ fontSize: "2rem", fontWeight: "bold", textAlign: "center", color: "#072342" }}>Skills Details</div>
-            <form style={{ padding: "2rem", display: "flex", flexDirection: "column", border: "3px solid green" }}>
-                <label style={{ fontWeight: "bold" }}>Programming Languages</label>
+            <div className='text-[2rem] font-bold text-center text-[#072342]'>Skills Details</div>
+            <form className='p-[2rem] flex flex-col border-[3px] border-solid border-green-700 mb-[1rem]'>
+                <label className='font-bold'>Programming Languages</label>
                 <input
                     type="text"
                     name="programmingLang"
                     value={skillData.programmingLang}
                     placeholder='Enter Programming Languages'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
 
-                <label style={{ fontWeight: "bold" }}>Libraries/Frameworks</label>
+                <label className='font-bold'>Libraries/Frameworks</label>
                 <input
                     type="text"
                     name="libraries"
                     value={skillData.libraries}
                     placeholder='Enter Libraries and Frameworks'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{ fontWeight: "bold" }}>Area of Interest</label>
+                <label className='font-bold'>Area of Interest</label>
                 <input
                     type="text"
                     name="areaOfInterest"
                     value={skillData.areaOfInterest}
                     placeholder='Enter Areas of Interest'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <button style={{ backgroundColor: "#072342", color: "white", height: "2.5rem" }} onClick={saveData}>Confirm</button>
+                <button className='bg-[#072342] text-[white] h-[2.5rem] rounded-lg overflow-hidden' onClick={saveData}>Confirm</button>
             </form></>
     )
 }

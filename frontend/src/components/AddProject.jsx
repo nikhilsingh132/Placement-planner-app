@@ -32,74 +32,74 @@ const AddProject = ({ id, removeProject, allProjectData, setallProjectData }) =>
 
     return (
         <>
-            <form style={{ padding: "2rem", display: "flex", flexDirection: "column", border: "3px solid green", marginBottom: "1rem" }}>
-                <label style={{ fontWeight: "bold" }}>Project Name</label>
+            <form className='p-[2rem] flex flex-col border-[3px] border-solid border-green-700 mb-[1rem]'>
+                <label className='font-bold'>Project Name</label>
                 <input
                     type="text"
                     name="projectname"
                     value={formData.projectname}
                     placeholder='Enter Project Name'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
 
-                <label style={{ fontWeight: "bold" }}>Description 1</label>
+                <label className='font-bold'>Description 1</label>
                 <input
                     type="text"
                     name="descriptionPoint1"
                     value={formData.descriptionPoint1}
                     placeholder='Enter description first point'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{ fontWeight: "bold" }}>Description 2</label>
+                <label className='font-bold'>Description 2</label>
                 <input
                     type="text"
                     name="descriptionPoint2"
                     value={formData.descriptionPoint2}
                     placeholder='Enter description second point'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{ fontWeight: "bold" }}>Description 3</label>
+                <label className='font-bold'>Description 3</label>
                 <input
                     type="text"
                     name="descriptionPoint3"
                     value={formData.descriptionPoint3}
                     placeholder='Enter description third point'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{ fontWeight: "bold" }}>Description 4</label>
+                <label className='font-bold'>Description 4</label>
                 <input
                     type="text"
                     name="descriptionPoint4"
                     value={formData.descriptionPoint4}
                     placeholder='Enter description fourth point'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{ fontWeight: "bold" }}>Start Date</label>
+                <label className='font-bold'>Start Date</label>
                 <input
                     type="text"
                     name="startDate"
                     value={formData.startDate}
                     placeholder='Enter Start Date'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{ fontWeight: "bold" }}>End Date</label>
+                <label className='font-bold'>End Date</label>
                 <input
                     type="text"
                     name="endDate"
                     value={formData.endDate}
                     placeholder='Enter End Date'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem", }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                    <button style={{ backgroundColor: "#072342", color: "white", height: "2.5rem", width: "5rem" }} onClick={saveData}>Confirm</button>
-                    <button style={{ backgroundColor: "#ba271a", color: "white", height: "2.5rem", width: "5rem" }} onClick={handleRemove}>Remove</button>
+                <div className='flex flex-row justify-between'>
+                    <button className='bg-[#072342] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={saveData}>Confirm</button>
+                    <button className='bg-[#ba271a] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={handleRemove}>Remove</button>
                 </div>
             </form>
 

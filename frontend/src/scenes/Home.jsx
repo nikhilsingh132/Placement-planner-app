@@ -39,7 +39,7 @@ const Home = () => {
     <>
       <div>
         <NavBar />
-        <div style={{ backgroundColor: "#0b2d39" }}>
+        <div className='bg-[#0b2d39]'>
             <div className="wrapper">
               {
                 cardinfo.map((data) => (

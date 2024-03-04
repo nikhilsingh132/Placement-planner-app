@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Logincss.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -10,6 +11,7 @@ const Login = () => {
     const [password, setpassword] = useState("");
     const [email, setemail] = useState("");
     const [phoneNumber, setphoneNumber] = useState("");
+    const { login } = useAuth();
 
     const handleSignUpClick = () => {
         setSignUpMode(true);
@@ -27,11 +29,12 @@ const Login = () => {
                 password,
             });
 
-            const { message } = response.data;
+            const { message,user } = response.data;
 
             if (message === "Login Successful") {
                 console.log("Login done successfully");
                 alert("Login Successful");
+                login(user);
                 navigate("/home");
             } else {
                 alert("Login failed");
@@ -54,7 +57,6 @@ const Login = () => {
                 password,
             });
             alert("Signed Up Successfully");
-            navigate("/home");
         } catch (error) {
             alert("Sign up error");
             console.log("Sign up error", error);

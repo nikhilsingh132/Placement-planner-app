@@ -17,8 +17,7 @@ const ProjectDetails = () => {
   }
   return (
     <>
-      <div style={{ fontSize: "2rem", fontWeight: "bold", textAlign: "center", color: "#072342" }}>Project Details</div>
-
+      <div  className='text-[2rem] font-bold text-center text-[#072342]'>Project Details</div>
       {
         projectComponent.map(exp => (
           <AddProject
@@ -29,7 +28,7 @@ const ProjectDetails = () => {
             setallProjectData={setallProjectData} />
         ))
       }
-      <button style={{ backgroundColor: "#115423", color: "white", height: "2.5rem", width: "8rem" }} onClick={addProject}>Add more+</button>
+      <button className='bg-[#115423] text-[white] h-[2.5rem] w-[8rem] rounded-lg overflow-hidden' onClick={addProject}>Add more+</button>
     </>
   )
 }

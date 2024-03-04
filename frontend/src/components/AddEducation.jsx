@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-const AddEducation = ({id,allEducationData,setallEducationData,removeEducation}) => {
-    
+const AddEducation = ({ id, allEducationData, setallEducationData, removeEducation }) => {
+
     const [formData, setFormData] = useState({
-        degree:'',
+        degree: '',
         institutionName: '',
         percentOrCpi: '',
         completionYear: ''
@@ -20,7 +20,7 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
     const saveData = (e) => {
         e.preventDefault();
         const newFormData = { ...formData, id: id };
-        setallEducationData( [...allEducationData,newFormData]);
+        setallEducationData([...allEducationData, newFormData]);
     }
 
     const handleRemove = (e) => {
@@ -30,47 +30,47 @@ const AddEducation = ({id,allEducationData,setallEducationData,removeEducation})
 
     return (
         <>
-            <form style={{ padding: "2rem", display: "flex", flexDirection: "column",border:"3px solid green",marginBottom:"1rem" }}>
-            <label style={{fontWeight:"bold"}}>Name of Degree</label>
+            <form className='p-[2rem] flex flex-col border-[3px] border-solid border-green-700 mb-[1rem]'>
+                <label className='font-bold'>Name of Degree</label>
                 <input
                     type="text"
                     name="degree"
                     value={formData.degree}
                     placeholder='Enter Degree'
                     onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{fontWeight:"bold"}}>Name of Institution</label>
+                <label className='font-bold'>Name of Institution</label>
                 <input
                     type="text"
                     name="institutionName"
                     value={formData.institutionName}
                     placeholder='Enter Name of Institution'
                     onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
+                    className='mb-[1rem] h-[2rem]'
                 />
 
-                <label style={{fontWeight:"bold"}}>Percentage/CPI</label>
+                <label className='font-bold'>Percentage/CPI</label>
                 <input
                     type="text"
                     name="percentOrCpi"
                     value={formData.percentOrCpi}
                     placeholder='Enter Percentage or CPI'
                     onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{fontWeight:"bold"}}>Year of Completion</label>
+                <label className='font-bold'>Year of Completion</label>
                 <input
                     type="text"
                     name="completionYear"
                     value={formData.completionYear}
                     placeholder='Enter Year of Completion'
                     onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <div style={{display:"flex",flexDirection:"row",justifyContent: "space-between"}}>
-                <button style={{ backgroundColor: "#072342",color:"white",height:"2.5rem",width:"5rem" }} onClick={saveData}>Confirm</button>
-                <button style={{ backgroundColor: "#ba271a",color:"white",height:"2.5rem",width:"5rem"}} onClick={handleRemove}>Remove</button>
+                <div className='flex flex-row justify-between'>
+                    <button className='bg-[#072342] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={saveData}>Confirm</button>
+                    <button className='bg-[#ba271a] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={handleRemove}>Remove</button>
                 </div>
             </form>
         </>

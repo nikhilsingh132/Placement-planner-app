@@ -5,8 +5,8 @@ import ResumePage from './ResumePage'
 
 const ResumePreview = () => {
   return (
-    <div style={{ width: "50%" }}>
-      <p style={{ textAlign: "center", color: "#4287f5", fontWeight: "bold", fontSize: "2rem",marginBottom:"20px" }}>Resume Preview</p>
+    <div className='w-[50%]'>
+      <p className='text-center text-[#4287f5] font-bold text-[2rem] mb-[20px]'>Resume Preview</p>
       <ResumePage/>
     </div>
   )

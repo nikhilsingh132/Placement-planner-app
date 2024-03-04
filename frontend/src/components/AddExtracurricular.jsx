@@ -25,19 +25,19 @@ const AddExtracurricular = ({ id, removeextracurricular, allExtraCurricularData,
     }
     return (
         <>
-            <form style={{ padding: "2rem", display: "flex", flexDirection: "column", border: "3px solid green", marginBottom: "1rem" }}>
-                <label style={{ fontWeight: "bold" }}>Extra-curricular activity</label>
+            <form className='p-[2rem] flex flex-col border-[3px] border-solid border-green-700 mb-[1rem]'>
+                <label className='font-bold'>Extra-curricular activity</label>
                 <input
                     type="text"
                     name="extracurricularName"
                     value={formData.extracurricularName}
                     placeholder='Enter Extra-curricular activity'
                     onChange={handleChange}
-                    style={{ marginBottom: "1rem", height: "2rem" }}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
-                    <button style={{ backgroundColor: "#072342", color: "white", height: "2.5rem", width: "5rem" }} onClick={saveData}>Confirm</button>
-                    <button style={{ backgroundColor: "#ba271a", color: "white", height: "2.5rem", width: "5rem" }} onClick={handleRemove}>Remove</button>
+                <div className='flex flex-row justify-between'>
+                    <button className='bg-[#072342] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={saveData}>Confirm</button>
+                    <button className='bg-[#ba271a] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={handleRemove}>Remove</button>
                 </div>
             </form>
 

@@ -1,13 +1,22 @@
 import React from 'react';
 import "../styles/Cardcss.css";
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../AuthContext";
 
 const Cards = (props) => {
     const navigate = useNavigate();
+    const { isAuthenticated } = useAuth();
 
     const handleClick = (link) => {
-        console.log("hello");
-        navigate(link);
+        if(isAuthenticated)
+        {
+            console.log("hello");
+            navigate(link);
+        }
+        else
+        {
+            alert("SignUp or Login first");
+        }
     };
 
     return (

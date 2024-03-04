@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-const AddPor = ({id,removepor,allPorData,setallPorData}) => {
+const AddPor = ({ id, removepor, allPorData, setallPorData }) => {
     const [formData, setformData] = useState({
         porName: "",
-        porDescription:""
+        porDescription: ""
     });
 
     const handleChange = (e) => {
@@ -24,35 +24,35 @@ const AddPor = ({id,removepor,allPorData,setallPorData}) => {
         e.preventDefault();
         removepor(id);
     }
-  return (
-    <>
-    <form style={{ padding: "2rem", display: "flex", flexDirection: "column",border:"3px solid green",marginBottom:"1rem" }}>
-                <label style={{fontWeight:"bold"}}>POR Name</label>
+    return (
+        <>
+            <form className='p-[2rem] flex flex-col border-[3px] border-solid border-green-700 mb-[1rem]'>
+                <label className='font-bold'>POR Name</label>
                 <input
                     type="text"
                     name="porName"
                     value={formData.porName}
                     placeholder='Enter POR Name'
                     onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <label style={{fontWeight:"bold"}}>POR Decription</label>
+                <label className='font-bold'>POR Decription</label>
                 <input
                     type="text"
                     name="porDescription"
                     value={formData.porDescription}
                     placeholder='Enter POR Decription'
                     onChange={handleChange}
-                    style={{marginBottom:"1rem",height:"2rem"}}
+                    className='mb-[1rem] h-[2rem]'
                 />
-                <div style={{display:"flex",flexDirection:"row",justifyContent: "space-between"}}>
-                <button style={{ backgroundColor: "#072342",color:"white",height:"2.5rem",width:"5rem" }} onClick={saveData}>Confirm</button>
-                <button style={{ backgroundColor: "#ba271a",color:"white",height:"2.5rem",width:"5rem"}} onClick={handleRemove}>Remove</button>
+                <div className='flex flex-row justify-between'>
+                    <button className='bg-[#072342] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={saveData}>Confirm</button>
+                    <button className='bg-[#ba271a] text-[white] h-[2.5rem] w-[5rem] rounded-lg overflow-hidden' onClick={handleRemove}>Remove</button>
                 </div>
             </form>
 
-    </>
-  )
+        </>
+    )
 }
 
 export default AddPor

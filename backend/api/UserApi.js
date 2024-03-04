@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
         if (!user) {
             return res.status(401).json({ message: "Incorrect Username" });
         }
-        res.status(200).json({ message: "Login Successful" });
+        res.status(200).json({ message: "Login Successful",user });
     }
     catch {
         res.status(404).json({

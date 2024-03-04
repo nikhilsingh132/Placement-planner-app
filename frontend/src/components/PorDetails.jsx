@@ -17,7 +17,7 @@ const PorDetails = () => {
   }
   return (
     <>
-      <div style={{ fontSize: "2rem", fontWeight: "bold", textAlign: "center", color: "#072342" }}>POR Details</div>
+      <div className='text-[2rem] font-bold text-center text-[#072342]'>POR Details</div>
 
       {
         porComponent.map(exp => (
@@ -29,7 +29,7 @@ const PorDetails = () => {
             setallPorData={setallPorData} />
         ))
       }
-      <button style={{ backgroundColor: "#115423", color: "white", height: "2.5rem", width: "8rem" }} onClick={addpor}>Add more+</button>
+      <button className='bg-[#115423] text-[white] h-[2.5rem] w-[8rem] rounded-lg overflow-hidden' onClick={addpor}>Add more+</button>
     </>
   )
 }
