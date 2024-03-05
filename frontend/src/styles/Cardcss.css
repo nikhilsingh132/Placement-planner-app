@@ -23,6 +23,7 @@
   grid-template-columns: repeat(auto-fit, minmax(20rem, 25rem));
   gap: 3rem;
   justify-content: center;
+  background-color: #0b2d39;
 }
 
 .card__image {

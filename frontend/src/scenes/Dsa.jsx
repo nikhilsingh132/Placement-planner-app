@@ -101,7 +101,7 @@ const DSA = () => {
   return (
     <>
       <NavBar />
-      <div>
+      <div className='bg-[#0b2d39]'>
         <div className="wrapper">
            {
              cardinfo.map((data)=>(

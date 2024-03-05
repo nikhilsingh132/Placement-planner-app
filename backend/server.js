@@ -10,6 +10,7 @@ app.use(cors());
 
 app.use(require("./api/QuesApi"));
 app.use(require("./api/UserApi"))
+app.use(require("./api/NotesApi"));
 
 
 app.listen(port, () => {
