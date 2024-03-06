@@ -29,16 +29,16 @@ const Login = () => {
                 password,
             });
 
-            const { message,user } = response.data;
+            const { message, user } = response.data;
 
             if (message === "Login Successful") {
-                console.log("Login done successfully");
+                // console.log("Login done successfully");
                 alert("Login Successful");
                 login(user);
                 navigate("/home");
             } else {
                 alert("Login failed");
-                console.log(message);
+                // console.log(message);
             }
         } catch (error) {
             console.log("Login error", error);
@@ -61,6 +61,7 @@ const Login = () => {
             alert("Sign up error");
             console.log("Sign up error", error);
         }
+        setSignUpMode(false);
         setemail("");
         setpassword("");
         setusername("");

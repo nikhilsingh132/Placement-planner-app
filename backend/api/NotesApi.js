@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const notes = require('../models/notes');
+const notesModel = require("../models/notes");
 
 
 // Store Notes Data API Endpoint
-router.post('/storeNotes/:quesId', async (req, res) => {
-    const { quesId } = req.params;
-    const { notes } = req.body;
+router.post('/storeNotes', async (req, res) => {
+    const { username,quesId,notes }=req.body;
 
+    // console.log("storing ",req.body);
     try {
-        const existingNotes = await notes.findOne({ quesId });
-
+        const existingNotes = await notesModel.findOne({ username,quesId });
         if (existingNotes) {
             existingNotes.notes = notes;
             await existingNotes.save();
         } else {
-            await notes.create({ quesId, notes });
+            const newNotes = new notesModel({ username,quesId,notes });
+            await newNotes.save();
         }
 
         res.status(200).json({ success: true, message: 'Notes stored successfully' });
@@ -25,20 +25,19 @@ router.post('/storeNotes/:quesId', async (req, res) => {
     }
 });
 
-router.get('/getNotes/:quesId', async (req, res) => {
-    const { quesId } = req.params;
-
+router.post('/getNotes', async (req, res) => {
+    const {username, quesId } = req.body;
     try {
-        const existingNotes = await notes.findOne({ quesId });
-
+        const existingNotes = await notesModel.findOne({ username,quesId });
+        // console.log("notes",existingNotes.notes);
         if (existingNotes) {
-            res.status(200).json({ success: true, data: existingNotes.notes });
+            res.status(200).json({ status:"200",message:"notes exists", data: existingNotes.notes });
         } else {
-            res.status(404).json({ success: false, message: 'Notes not found' });
+            res.status(404).json({ status:"404", message: 'Notes not found' });
         }
     } catch (error) {
         console.error('Error fetching notes:', error);
-        res.status(500).json({ success: false, message: 'Internal server error in finding notes' });
+        res.status(500).json({ status:"500", message: 'Internal server error in finding notes' });
     }
 });
 

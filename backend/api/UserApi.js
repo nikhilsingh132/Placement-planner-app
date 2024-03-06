@@ -3,12 +3,12 @@ const router = express.Router();
 const users = require("../models/user");
 
 router.post('/login', async (req, res) => {
-    console.log("login api is called");
+    // console.log("login api is called");
 
     try {
         const { username } = req.body;
         const user = await users.findOne({ username });
-        console.log(user);
+        // console.log(user);
         if (!user) {
             return res.status(401).json({ message: "Incorrect Username" });
         }

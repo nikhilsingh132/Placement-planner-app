@@ -22,12 +22,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        validate: {
-            validator: function (v) {
-                return /^\d{10}$/g.test(v);
-            },
-            message: props => `${props.value} is not a valid phone number! Please enter a 10-digit number without spaces or special characters.`,
-        },
+        // validate: {
+        //     validator: function (v) {
+        //         return /^\d{10}$/g.test(v);
+        //     },
+        //     message: props => `${props.value} is not a valid phone number! Please enter a 10-digit number without spaces or special characters.`,
+        // },
     },
     password: {
         type: String,

@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
 const notesSchema = new mongoose.Schema({
+    username:{
+        type: String,
+        required: true,
+    },
     quesId: {
         type: String,
         required: true,
-        unique: true,
     },
     notes: {
         type: String,
@@ -12,6 +15,6 @@ const notesSchema = new mongoose.Schema({
     },
 });
 
-const NotesModel = mongoose.model('Notes', notesSchema);
+const NotesModel = mongoose.model('note', notesSchema);
 
 module.exports = NotesModel;

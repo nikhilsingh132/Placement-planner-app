@@ -10,7 +10,7 @@ const Cards = (props) => {
     const handleClick = (link) => {
         if(isAuthenticated)
         {
-            console.log("hello");
+            // console.log("hello");
             navigate(link);
         }
         else

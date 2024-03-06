@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => {
     // Perform your login logic
     setIsAuthenticated(true);
-    console.log("hello");
+    // console.log("hello");
     // Store the updated authentication state and user data in local storage
     localStorage.setItem('isAuthenticated', JSON.stringify(true));
     localStorage.setItem('userData', JSON.stringify(userData));

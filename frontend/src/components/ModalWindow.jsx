@@ -1,7 +1,5 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
+import React, { useState } from 'react';
+import { Box, Button, Modal, Typography } from '@mui/material';
 import TextEditor from './TextEditor';
 
 const style = {
@@ -18,12 +16,15 @@ const style = {
     pt: 2,
     px: 2,
     pb: 2,
-    height: '30rem',
+    height: '35rem',
     flexDirection: 'column',
 };
 
 const ModalWindow = ({ open, onClose, quesName }) => {
-
+    const [submitButton, setsubmitButton] = useState(false);
+    const handleSubmit=()=>{
+        setsubmitButton(true);
+    }
     return (
         <div>
             <Modal
@@ -33,8 +34,9 @@ const ModalWindow = ({ open, onClose, quesName }) => {
                 aria-describedby="parent-modal-description"
             >
                 <Box sx={style}>
-                    <Typography style={{ marginTop: '-60px',marginBottom:"10px",fontWeight:"bold",fontSize:"2rem" }}>{quesName}</Typography>
-                    <TextEditor />
+                    <Typography style={{ marginTop: "-50px", marginBottom: "10px", fontWeight: "bold", fontSize: "2rem" }}>{quesName}</Typography>
+                    <Button variant="contained" style={{ marginBottom: "10px" }} onClick={handleSubmit}>Submit</Button>
+                    <TextEditor submitButton={submitButton} setsubmitButton={setsubmitButton} open={open}/>
                 </Box>
             </Modal>
         </div>

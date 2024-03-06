@@ -3,7 +3,7 @@ const router = express.Router();
 const questions = require("../models/questions");
 
 router.post("/getAllQuestions", async (req, res) => {
-    console.log("getAllQuestions api");
+    // console.log("getAllQuestions api");
 
     try {
         const tag = req.body.tags;
@@ -26,7 +26,7 @@ router.post("/getAllQuestions", async (req, res) => {
 
 
 router.post("/addQuestions", async (req, res) => {
-    console.log("addQuestions Api");
+    // console.log("addQuestions Api");
 
     try {
         const data = req.body;

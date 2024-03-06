@@ -11,26 +11,47 @@ import {
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ModalWindow from '../components/ModalWindow';
-
+import { useAuth } from "../AuthContext";
 
 const notesDetails = createContext();
 
 const QuesList = () => {
-
-    const { id } = useParams();
-    const [checkedItems, setCheckedItems] = useState({});
+    const { user } = useAuth();
+    const {id}=useParams();
+    const storageKey = `checkedItems_${user?.username}`;
+    const [checkedItems, setCheckedItems] = useState(() => {
+        const localStorageData = localStorage.getItem(storageKey);
+        return localStorageData ? JSON.parse(localStorageData) : {};
+    });
     const [taggedQuestions, settaggedQuestions] = useState([]);
     const [openModal, setopenModal] = useState(false);
     const [quesName, setquesName] = useState("");
     const [quesId, setQuesId] = useState(null);
 
+    useEffect(() => {
+        const storedCheckedItems = localStorage.getItem(storageKey);
+        if (storedCheckedItems) {
+            setCheckedItems(JSON.parse(storedCheckedItems));
+        }
+    }, [storageKey]);
+
+
     const handleCheckboxChange = (itemId) => {
-        setCheckedItems((prevCheckedItems) => ({
-            ...prevCheckedItems,
-            [itemId]: !prevCheckedItems[itemId],
-        }));
+        setCheckedItems((prevCheckedItems) => {
+            const updatedCheckedItems = {
+                ...prevCheckedItems,
+                [itemId]: !prevCheckedItems[itemId],
+            };
+
+            // Save to local storage with the unique key
+            localStorage.setItem(storageKey, JSON.stringify(updatedCheckedItems));
+
+            return updatedCheckedItems;
+        });
     };
-    const handleModal =async (name, id) => {
+
+
+    const handleModal = async (name, id) => {
         setquesName(name);
         setopenModal(true);
         setQuesId(id);
@@ -41,7 +62,7 @@ const QuesList = () => {
             try {
                 const lowercaseId = id.toLowerCase();
                 const response = await axios.post('http://localhost:8000/getAllQuestions', { tags: lowercaseId });
-                console.log("list of question", response.data.data);
+                // console.log("list of question", response.data.data);
                 settaggedQuestions(response.data.data);
             }
             catch (error) {
@@ -57,7 +78,7 @@ const QuesList = () => {
             <div className='bg-[#0b2d39]'>
                 <NavBar />
                 <Card className='mx-20 mt-[20px] bg-[#003300] rounded-[20px] shadow-md'>
-                    <p className='font-bold text-3xl text-center my-5 text-white'>{id}</p>
+                    <p className='font-bold text-xl text-center my-5 text-white'>{id}</p>
                     <List className='mx-20'>
                         {
                             taggedQuestions.map((data) => (
@@ -96,8 +117,8 @@ const QuesList = () => {
                 </Card>
                 {
                     openModal === true &&
-                    <notesDetails.Provider value={{quesId}}>
-                        <ModalWindow open={openModal} onClose={() => setopenModal(false)} quesName={quesName}/>
+                    <notesDetails.Provider value={{ quesId }}>
+                        <ModalWindow open={openModal} onClose={() => setopenModal(false)} quesName={quesName} />
                     </notesDetails.Provider>
                 }
             </div>
