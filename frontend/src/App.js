@@ -8,6 +8,7 @@ import QuesList from "./scenes/QuesList";
 import ResumeMaker from "./scenes/ResumeMaker";
 import Login from "./scenes/Login";
 import { AuthProvider } from "./AuthContext";
+import EmailVerify from "./scenes/EmailVerify"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/csfundamental' element={<Csfundamental />} />
             <Route path='/webd' element={<Webd />} />
             <Route path="/dsa/question/:id" element={<QuesList />} />
+            <Route path="/:id/verify/:token" element={<EmailVerify />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

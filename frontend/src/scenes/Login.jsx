@@ -12,6 +12,7 @@ const Login = () => {
     const [email, setemail] = useState("");
     const [phoneNumber, setphoneNumber] = useState("");
     const { login } = useAuth();
+    const [msg, setmsg] = useState("")
 
     const handleSignUpClick = () => {
         setSignUpMode(true);
@@ -21,6 +22,8 @@ const Login = () => {
         setSignUpMode(false);
     };
 
+    axios.defaults.withCredentials = true;
+
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -28,20 +31,25 @@ const Login = () => {
                 username,
                 password,
             });
-
             const { message, user } = response.data;
-
-            if (message === "Login Successful") {
-                // console.log("Login done successfully");
+            console.log("response", response.data);
+            if (response.status === 200 && message === "Login Successful") {
                 alert("Login Successful");
                 login(user);
                 navigate("/home");
             } else {
                 alert("Login failed");
-                // console.log(message);
+                console.log(message);
             }
         } catch (error) {
-            console.log("Login error", error);
+            if (error.response && error.response.status === 404) {
+                const { message } = error.response.data;
+                alert("Login failed due to incorrect password");
+                console.log("Login failed with status 404");
+                console.log("Error message:", message);
+            } else {
+                console.log("Login error", error);
+            }
         }
         setusername("");
         setpassword("");
@@ -49,23 +57,26 @@ const Login = () => {
 
     const handleSignup = async (e) => {
         e.preventDefault();
+        setmsg("");
         try {
-            await axios.post("http://localhost:8000/signup", {
+            const response = await axios.post("http://localhost:8000/signup", {
                 username,
                 email,
                 phoneNumber,
                 password,
             });
-            alert("Signed Up Successfully");
+            setmsg(response.data.message);
+            // alert("Signed Up Successfully");
+            console.log(response.data.message);
         } catch (error) {
             alert("Sign up error");
             console.log("Sign up error", error);
         }
-        setSignUpMode(false);
-        setemail("");
-        setpassword("");
-        setusername("");
-        setphoneNumber("");
+        // setSignUpMode(false);
+        // setemail("");
+        // setpassword("");
+        // setusername("");
+        // setphoneNumber("");
     }
     return (
         <div className={`container ${isSignUpMode ? 'sign-up-mode' : ''}`}>
@@ -114,8 +125,13 @@ const Login = () => {
                         </div>
                         <div className="input-field">
                             <i className="fas fa-lock"></i>
-                            <input type="text" value={password} onChange={(e) => setpassword(e.target.value)} placeholder="Password" />
+                            <input type="password" value={password} onChange={(e) => setpassword(e.target.value)} placeholder="Password" />
                         </div>
+                        {msg && (
+                            <div className='bg-[#428c16] text-[white] h-[3rem] w-[22rem] flex items-center justify-center rounded-lg'>
+                                {msg}
+                            </div>
+                        )}
                         <input type="submit" onClick={handleSignup} className="btn" value="Sign up" />
                         {/* <p className="social-text">Or Sign up with social platforms</p> */}
                         <div className="social-media">
