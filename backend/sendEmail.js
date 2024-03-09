@@ -20,7 +20,7 @@ module.exports = async (email, subject, text) => {
 		});
 
 		await transporter.sendMail({
-			from: "nikhilkumarsingh123456@gmail.com",
+			from: process.env.USER,
 			to: email,
 			subject: subject,
 			text: text,
