@@ -27,9 +27,9 @@ const ResumeForm = () => {
     };
 
     return (
-        <div className='w-[50%] flex flex-col items-center'>
-            <p className='text-[#4287f5] font-bold text-[2rem] mb-[20px]'>Fill the form</p>
-            <div className='bg-[#9edeaf] w-[80%] max-h-[60vh] p-[20px] mb-[20px] border-[3px] border-blue-500 overflow-y-auto'>
+        <div className='sm:w-[50%] flex flex-col items-center'>
+            <p className='text-[#4287f5] sm:font-bold text-[1.5rem] sm:text-[2rem] mb-[20px]'>Fill the form</p>
+            <div className='bg-[#9edeaf] sm:w-[80%] max-h-[68vh] sm:max-h-[60vh] p-[20px] mb-[20px] border-[3px] border-blue-500 overflow-y-auto'>
                 {currentIndex === 1 && <PersonalDetails />}
                 {currentIndex === 2 && <EducationalDetails />}
                 {currentIndex === 3 && <WorkExperience />}
@@ -40,9 +40,9 @@ const ResumeForm = () => {
                 {currentIndex === 8 && <ExtraCurricularDetails />}
             </div>
             <div className='flex justify-between w-[80%]'>
-                <button className='bg-[#355475] text-[white] border-none p-[10px] px-[20px] cursor-pointer' onClick={prevIndex}>Back</button>
+                <button className='bg-[#355475] text-[white] border-none p-[10px] cursor-pointer' onClick={prevIndex}>Back</button>
 
-                <button className='bg-[#357546] text-[white] border-none p-[10px] px-[20px] cursor-pointer' onClick={nextIndex}>Next</button>
+                <button className='bg-[#357546] text-[white] border-none p-[10px] cursor-pointer' onClick={nextIndex}>Next</button>
             </div>
         </div>
     );

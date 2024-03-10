@@ -60,43 +60,40 @@ const ResumeMaker = () => {
         <>
 
             <NavBar />
-            <div>
-                <div className="h-[92vh] bg-[#0b2d39]">
-                    <div className='flex'>
-                        <div className='text-[#d3eaf2] text-[5rem] mr-[2rem] mt-[4rem]'>
-                            <p className='ml-[6rem]'>
+            {/* <div> */}
+                <div className=" bg-[#0b2d39]">
+                    <div className='flex sm:flex-row flex-col'>
+                        <div className='text-[#d3eaf2] sm:text-[5rem] text-[1.5rem] sm:mr-[2rem] sm:mt-[4rem] mt-[2rem]'>
+                            <p className='sm:ml-[6rem] ml-[1rem]'>
                                 An
-                                <span className='text-[#55cb51] text-[6rem] font-bold'> Excellent </span>
+                                <span className='text-[#55cb51] sm:text-[6rem] text-[2.5rem] font-bold'> Excellent </span>
                                 and
                                 <br />
                                 a very
-                                <span className='text-[#55cb51] text-[6rem] font-bold'> Easy </span>
+                                <span className='text-[#55cb51] sm:text-[6rem] text-[2.5rem] font-bold'> Easy </span>
                                 way to
                                 <br />
                                 build a
-                                <span className='text-[#55cb51] text-[6rem] font-bold'> Resume </span>
+                                <span className='text-[#55cb51] sm:text-[6rem] text-[2.5rem] font-bold'> Resume </span>
                             </p>
                         </div>
-                        <div className='mt-[4rem]'>
+                        <div className='sm:mt-[4rem] mt-[3rem] sm:w-[30rem]'>
                             <img src={Resumephotologo} alt="ResumePhotoLogo" onMouseEnter={handleHover} onMouseLeave={handleHover} />
                         </div>
                     </div>
-                    <div>
-                        <div className='mt-[4rem] mb-[4rem] ml-[20rem] mr-[20rem] bg-[#ade0d0] h-[4rem] rounded-lg overflow-hidden flex justify-center items-center'>
-                            <p className='font-bold text-[#132e40] text-[2rem] mr-[1rem]' >Start building awesome resume 🛠️📑</p>
-                            <button className='bg-[#0c2638] text-[white] h-[3rem] w-[7rem] rounded-lg overflow-hidden' onClick={handleScrollToNextViewport}>Click Here</button>
-                        </div>
-
+                    <div className='flex-col p-2 sm:flex-row mt-[4rem] ml-[5px] mr-[5px]  sm:ml-[20rem] sm:mr-[20rem] bg-[#ade0d0] sm:h-[4rem] rounded-lg flex justify-center items-center'>
+                        <p className='font-bold text-[#132e40] sm:text-[2rem] sm:mr-[1rem]' >Start building awesome resume 🛠️📑</p>
+                        <button className='bg-[#0c2638] p-1 text-[white] sm:h-[3rem] sm:w-[7rem] rounded-lg ' onClick={handleScrollToNextViewport}>Click Here</button>
                     </div>
                 </div>
                 {
                     isAuthenticated &&
                     <>
-                        <div ref={nextViewportRef} className='h-100vh bg-[#0b2d39]'>
+                        <div ref={nextViewportRef} className=' bg-[#0b2d39]'>
                             <div>
-                                <p className='text-[2.5rem] text-[#e3d8eb] text-center mb-[1rem]'>One step closer in seeking job opportunities</p>
+                                <p className='text-[1.5rem] sm:text-[2.5rem] p-2 sm:p-10 text-[#e3d8eb] text-center sm:mb-[1rem]'>One step closer in seeking job opportunities</p>
                             </div>
-                            <div className='flex flex-row w-[100%]'>
+                            <div className='flex flex-col sm:flex-row w-[100%]'>
                                 <personaldetail.Provider value={{ formData, setformData, confirmedData, setconfirmedData }}>
                                     <educationaldetail.Provider value={{ allEducationData, setallEducationData }}>
                                         <experiencedetail.Provider value={{ allExperienceData, setallExperienceData }}>
@@ -120,7 +117,7 @@ const ResumeMaker = () => {
                     </>
                 }
 
-            </div>
+            {/* </div> */}
         </>
     )
 }

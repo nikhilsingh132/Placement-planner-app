@@ -9,6 +9,13 @@ Font.register({
   src: Arimo
 })
 const styles = StyleSheet.create({
+  pdfview: {
+    // flex: 1,
+    aspectRatio: 1.2,
+    width: '90%',
+    marginBottom:'2rem',
+    marginLeft:"1rem"
+  },
   page: {
     padding: 30,
   },
@@ -106,7 +113,7 @@ const ResumePage = () => {
 
   return (
     <>
-      <PDFViewer height={550} width={650}>
+      <PDFViewer style={styles.pdfview}>
         <Document title='Resume'>
           <Page size="A4" style={styles.page}>
 

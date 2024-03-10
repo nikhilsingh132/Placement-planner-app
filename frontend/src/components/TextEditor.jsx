@@ -61,7 +61,7 @@ const TextEditor = ({ submitButton, setsubmitButton, open }) => {
 
     return (
         <>
-            <div className='h-[20rem]'>
+            <div className='h-[15rem]'>
                 <div ref={quillRef} />
             </div>
         </>

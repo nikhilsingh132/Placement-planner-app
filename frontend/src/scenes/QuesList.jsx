@@ -17,7 +17,7 @@ const notesDetails = createContext();
 
 const QuesList = () => {
     const { user } = useAuth();
-    const {id}=useParams();
+    const { id } = useParams();
     const storageKey = `checkedItems_${user?.username}`;
     const [checkedItems, setCheckedItems] = useState(() => {
         const localStorageData = localStorage.getItem(storageKey);
@@ -77,44 +77,45 @@ const QuesList = () => {
         <>
             <div className='bg-[#0b2d39]'>
                 <NavBar />
-                <Card className='mx-20 mt-[20px] bg-[#003300] rounded-[20px] shadow-md'>
-                    <p className='font-bold text-xl text-center my-5 text-white'>{id}</p>
-                    <List className='mx-20'>
-                        {
-                            taggedQuestions.map((data) => (
-                                <ListItem className={`p-0 mb-3 mt-3 rounded-lg ${checkedItems[data._id] ? 'bg-[#ace600]' : 'bg-[#a6a6a6]'} hover:shadow-md transition duration-300`}>
-                                    <label
-                                        htmlFor="vertical-list-react"
-                                        className="flex w-full cursor-pointer items-center px-3 py-2 text-gray-700 hover:text-[#d9d9d9]"
-                                    >
-                                        <ListItemPrefix className="mr-5">
-                                            <Checkbox
-                                                id={`checkbox-${data._id}`}
-                                                ripple={false}
-                                                className="hover:before:opacity-0"
-                                                containerProps={{
-                                                    className: "p-0",
-                                                }}
-                                                style={{ width: "1.5em", height: "1.5em" }}
-                                                checked={checkedItems[data._id] || false}
-                                                onChange={() => handleCheckboxChange(data._id)}
-                                            />
-                                        </ListItemPrefix>
-                                        <div className='flex flex-row items-center justify-between w-full'>
-                                            <a href={data.link} target="_blank" rel="noreferrer">
-                                                <Typography color="blue-gray" style={{ fontWeight: "bold" }} className="text-2xl cursor-pointer capitalize font-medium ">
-                                                    {data.name}
-                                                </Typography>
-                                            </a>
-                                            <button className='mr-[2rem] bg-[#0d0d0d] w-[4rem] h-[2rem] rounded-lg text-white hover:text-[#ffcc99]' onClick={() => handleModal(data.name, data._id)}>Notes</button>
-                                        </div>
+                <div>
+                    <Card className='sm:mx-20 sm:mt-[20px] bg-[#003300] sm:rounded-[20px] shadow-md'>
+                        <p className='font-bold text-xl text-center my-5 text-white'>{id}</p>
+                        <List className='sm:mx-20 mx-6'>
+                            {
+                                taggedQuestions.map((data) => (
+                                    <ListItem className={`mb-3 mt-3 rounded-lg ${checkedItems[data._id] ? 'bg-[#ace600]' : 'bg-[#a6a6a6]'} hover:shadow-md transition duration-300`}>
+                                        <label
+                                            htmlFor="vertical-list-react"
+                                            className="flex w-full cursor-pointer items-center px-3 py-2 text-gray-700 hover:text-[#d9d9d9]"
+                                        >
+                                            <ListItemPrefix className="mr-5">
+                                                <Checkbox
+                                                    id={`checkbox-${data._id}`}
+                                                    ripple={false}
+                                                    className="hover:before:opacity-0 sm:w-[1.5rem] sm:h-[1.5rem] h-[1rem] w-[1rem]"
+                                                    containerProps={{
+                                                        className: "p-0",
+                                                    }}
+                                                    checked={checkedItems[data._id] || false}
+                                                    onChange={() => handleCheckboxChange(data._id)}
+                                                />
+                                            </ListItemPrefix>
+                                            <div className='flex flex-row items-center justify-between w-full'>
+                                                <a href={data.link} target="_blank" rel="noreferrer">
+                                                    <Typography color="blue-gray" style={{ fontWeight: "bold" }} className="sm:text-2xl text-xl cursor-pointer capitalize">
+                                                        {data.name}
+                                                    </Typography>
+                                                </a>
+                                                <button className='sm:mr-[2rem] bg-[#0d0d0d] sm:w-[4rem] h-[2rem] rounded-lg text-white hover:text-[#ffcc99]' onClick={() => handleModal(data.name, data._id)}>Notes</button>
+                                            </div>
 
-                                    </label>
-                                </ListItem>
-                            ))
-                        }
-                    </List>
-                </Card>
+                                        </label>
+                                    </ListItem>
+                                ))
+                            }
+                        </List>
+                    </Card>
+                </div>
                 {
                     openModal === true &&
                     <notesDetails.Provider value={{ quesId }}>
@@ -122,7 +123,6 @@ const QuesList = () => {
                     </notesDetails.Provider>
                 }
             </div>
-
         </>
     )
 }
