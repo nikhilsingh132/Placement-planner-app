@@ -8,7 +8,7 @@ const cors = require("cors")
 //enable cors
 app.use(cors(
     {
-        origin:["http://localhost:3000"],
+        origin:["https://placement-planner.netlify.app/"],
         methods:["GET","POST"],
         credentials:true,
     }
