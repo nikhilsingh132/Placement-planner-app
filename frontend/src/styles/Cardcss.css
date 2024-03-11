@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
 
-/* Color variables */
 .card {
   --clr-primary: #087223;
   overflow: hidden;
@@ -15,6 +14,16 @@
   background-color: rgb(226, 243, 240);
   margin-top: 1rem;
   margin-bottom: 1rem;
+ /* Set your preferred height */
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  height: 10rem; /* Ensure the image takes the full height of the container */
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem; /* Ensure rounded corners for the top of the image */
 }
 
 
@@ -25,12 +34,6 @@
   gap: 3rem;
   justify-content: center;
   background-color: #0b2d39;
-}
-
-/* Default styles for all devices */
-.card__image {
-  display: block;
-  width: 100%;
 }
 
 /* Hide the image on screens smaller than 600 pixels */

@@ -24,7 +24,9 @@ const Cards = (props) => {
             <div className="card__body">
                 <img src={props.img} alt="Error" className="card__image" />
                 <h2 className="card__title font-bold text-2xl">{props.title}</h2>
-                <p className="card__description">{props.description}</p>
+                {props.description && (
+                    <p className="card__description">{props.description}</p>
+                )}
             </div>
             <button className="card__btn" onClick={() => handleClick(props.link)}>
                 Click to view

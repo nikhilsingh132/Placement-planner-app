@@ -102,7 +102,7 @@ const QuesList = () => {
                                             </ListItemPrefix>
                                             <div className='flex flex-row items-center justify-between w-full'>
                                                 <a href={data.link} target="_blank" rel="noreferrer">
-                                                    <Typography color="blue-gray" style={{ fontWeight: "bold" }} className="sm:text-2xl text-xl cursor-pointer capitalize">
+                                                    <Typography color="blue-gray" style={{ fontWeight: "bold" }} className="sm:text-2xl text-[1rem] cursor-pointer capitalize">
                                                         {data.name}
                                                     </Typography>
                                                 </a>
