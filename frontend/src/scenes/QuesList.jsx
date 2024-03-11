@@ -61,7 +61,7 @@ const QuesList = () => {
         const fetchQues = async () => {
             try {
                 const lowercaseId = id.toLowerCase();
-                const response = await axios.post('http://localhost:8000/getAllQuestions', { tags: lowercaseId });
+                const response = await axios.post('https://placement-planner-app.onrender.com/getAllQuestions', { tags: lowercaseId });
                 // console.log("list of question", response.data.data);
                 settaggedQuestions(response.data.data);
             }

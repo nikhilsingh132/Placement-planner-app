@@ -15,7 +15,7 @@ const TextEditor = ({ submitButton, setsubmitButton, open }) => {
     useEffect(() => {
         const fetchNotesData = async () => {
             try {
-                const response = await axios.post('http://localhost:8000/getNotes', { username, quesId });
+                const response = await axios.post('https://placement-planner-app.onrender.com/getNotes', { username, quesId });
                 const notesStored = response.data;
                 // console.log(notesStored);
                 if (quill && notesStored) {
@@ -48,7 +48,7 @@ const TextEditor = ({ submitButton, setsubmitButton, open }) => {
                 const notes = cleanedEditorData;
                 // console.log(editorData);
                 try {
-                    await axios.post('http://localhost:8000/storeNotes', { username, quesId, notes });
+                    await axios.post('https://placement-planner-app.onrender.com/storeNotes', { username, quesId, notes });
                     // console.log('Notes stored successfully');
                 } catch (error) {
                     console.error('Error storing notes data:', error);

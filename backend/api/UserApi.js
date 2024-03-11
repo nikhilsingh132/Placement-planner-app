@@ -19,7 +19,7 @@ router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
         const user = await users.findOne({ username });
-        // console.log(user);
+        console.log(user);
         if (!user) {
             return res.status(401).json({ message: "Incorrect Username" });
         }
