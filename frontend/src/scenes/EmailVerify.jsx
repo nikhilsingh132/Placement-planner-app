@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import success from "../assets/success.jpeg";
 
 const EmailVerify = () => {
-  const [validUrl, setValidUrl] = useState(true);
+  const [validUrl, setValidUrl] = useState(false);
   const param = useParams();
 
   useEffect(() => {
