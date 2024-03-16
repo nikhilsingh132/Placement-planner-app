@@ -17,7 +17,7 @@ const ModalWindow = ({ open, onClose, quesName }) => {
                 aria-describedby="parent-modal-description"
             >
                 <Box className="absolute flex items-center justify-center bg-[white]  border-[2px] border-black p-[1rem] h-[30rem] flex-col ml-[1rem] mr-[1rem] top-1/4 sm:top-1/2 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:-translate-y-1/2">
-                    <Typography style={{marginTop:"-5rem"}} className=' mb-[10px] text-[2rem] font-bold'>{quesName}</Typography>
+                    <Typography style={{marginTop:"-5rem"}} className=' mb-[10px] text-[1.5rem] font-bold'>{quesName}</Typography>
                     <Button variant="outlined" className='mb-[10px]' onClick={handleSubmit}>Submit</Button>
                     <TextEditor submitButton={submitButton} setsubmitButton={setsubmitButton} open={open}/>
                 </Box>
